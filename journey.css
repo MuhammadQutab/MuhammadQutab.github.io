@@ -1,0 +1,43 @@
+/* A static, progressively enhanced 3D journey for GitHub Pages. */
+.experience{position:relative;isolation:isolate;background:radial-gradient(ellipse at 80% 30%,#123e2d 0,transparent 55%),#03130f;--chapter-turn:0deg;--chapter-progress:.3333}
+.experience-inner{position:relative;isolation:isolate}
+.experience .section-title{position:relative;z-index:1;margin-bottom:32px}
+.experience .section-title h2{font-size:clamp(40px,4.5vw,66px);line-height:1.05}
+.journey-intro{font-size:13px;line-height:1.8;color:#a0b9a9;margin-top:18px}
+.experience.animated-career{height:310svh}
+.animated-career .experience-inner{padding-top:100px;padding-bottom:64px;min-height:710px}
+.experience .career{position:relative;z-index:2;grid-template-columns:260px minmax(0,1fr);max-width:1100px;gap:42px;align-items:start}
+.experience .career-nodes{align-items:stretch;padding:0;border:0;gap:12px}
+.experience .career-nodes button{display:flex;align-items:center;gap:16px;width:100%;height:80px;padding:15px 18px;border-radius:4px;border:1px solid #42644d;background:#071d16b8;text-align:left;color:#8aa393;transform:none}
+.experience .career-nodes button b{font:17px Georgia,serif;color:inherit}
+.experience .career-nodes button>span{position:static;display:block;white-space:normal;font:10px monospace;letter-spacing:2px;color:inherit}
+.experience .career-nodes small{display:block;font:11px sans-serif;letter-spacing:0;margin-top:7px;color:#a6bdac}
+.experience .career-nodes i{font-style:normal;margin-left:auto}
+.experience .career-nodes button.selected{background:#142b21;border-color:#beec71;color:#d5f8a1;box-shadow:inset 3px 0 #c0eb79,0 15px 35px #0004;transform:translateX(7px)}
+.journey-hint{font:8px/1.9 monospace;letter-spacing:1.4px;color:#8ba28e;margin-top:14px}
+.experience .career-panels{perspective:1400px;min-width:0}
+.experience .career-panel{position:relative;min-height:358px;padding:28px 34px;border:1px solid #537659;background:linear-gradient(125deg,#102a20f5,#041610f5);box-shadow:16px 16px 0 -1px #082117,16px 16px 0 0 #35503c,0 30px 60px #0005;transform-origin:center bottom}
+.experience .career-panel h3{font-size:32px;margin:13px 0 12px}
+.experience .career-panel>.eyebrow{font-size:9px;color:#b4a8ec}
+.chapter-label{font:9px monospace;letter-spacing:3px;color:#c2ee83;margin:0 0 16px}
+.experience .career-panel ul{font-size:12px;margin-top:16px;line-height:1.8}
+.experience .manager-description{margin-top:18px;font-size:13px;line-height:1.8}
+.chapter-reflection{border-top:1px solid #38523e;padding-top:14px;margin-top:20px;font:italic 18px/1.35 Georgia,serif;color:#d6e6ca}
+.agency-link{display:inline-flex;align-items:center;gap:28px;padding:12px 0 4px;font-size:12px;color:#c6ee8d;border-bottom:1px solid #97bd69;text-decoration:none}
+.agency-link span{transition:transform .3s}.agency-link:hover span{transform:translate(3px,-3px)}
+.experience .career-controls{margin-top:30px}.experience .career-controls button{padding:10px 0;font-size:10px}.experience .career-controls>span{font-size:9px}
+.journey-world{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none;perspective:1000px}
+.journey-orbit{position:absolute;right:-5%;top:0;width:610px;height:610px;border:1px solid #b1e19426;border-radius:50%;transform:rotateX(58deg) rotateY(var(--journey-turn,0deg)) translateY(var(--journey-drift,0px))}
+.orbit-two{width:480px;height:480px;right:2%;top:50px;transform:rotateX(30deg) rotateY(-50deg) rotateZ(var(--journey-turn,0deg))}
+.journey-floor{position:absolute;bottom:-180px;left:-20%;width:140%;height:550px;background-image:linear-gradient(#9ad78714 1px,transparent 1px),linear-gradient(90deg,#9ad78714 1px,transparent 1px);background-size:65px 65px;transform:rotateX(65deg) translateY(var(--journey-drift,0px));mask-image:linear-gradient(transparent,#000)}
+.story-cube{position:absolute;right:11%;top:105px;width:100px;height:100px;transform-style:preserve-3d;transform:rotateX(-20deg) rotateY(calc(var(--chapter-turn) + var(--journey-turn,0deg))) rotateZ(-8deg);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.story-cube i{position:absolute;inset:0;display:grid;place-items:center;border:1px solid #b7e78b80;background:#153d2b80;font:12px monospace;letter-spacing:3px;color:#c6eb98;font-style:normal;backface-visibility:hidden}
+.story-cube i:nth-child(1){transform:translateZ(50px)}.story-cube i:nth-child(2){transform:rotateY(90deg) translateZ(50px)}.story-cube i:nth-child(3){transform:rotateY(180deg) translateZ(50px)}.story-cube i:nth-child(4){transform:rotateY(270deg) translateZ(50px)}.story-cube i:nth-child(5){transform:rotateX(90deg) translateZ(50px)}.story-cube i:nth-child(6){transform:rotateX(-90deg) translateZ(50px)}
+.journey-progress{height:2px;background:#5b83552b;margin-top:32px;position:relative;z-index:2}.journey-progress i{display:block;height:100%;background:#c2ed80;transform:scaleX(var(--chapter-progress));transform-origin:left;transition:transform .7s}
+.journey-marquee{overflow:hidden;margin-top:24px;opacity:.35;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.journey-marquee>div{display:flex;width:max-content;animation:journey-marquee 35s linear infinite}.journey-marquee span{white-space:nowrap;font:600 clamp(24px,3vw,42px)/1.2 sans-serif;letter-spacing:2px;color:#95bf81}
+@keyframes journey-marquee{to{transform:translateX(-50%)}}
+.motion-off .journey-marquee>div{animation:none}.motion-off .story-cube{transform:rotateX(-20deg) rotateY(-25deg);transition:none}.motion-off .journey-orbit,.motion-off .journey-floor{transition:none}.motion-off .journey-progress i{transition:none}
+@media(min-width:801px) and (max-height:800px){.animated-career .experience-inner{padding-top:85px;min-height:620px}.animated-career .section-title{margin-bottom:22px}.animated-career .section-title h2{font-size:38px}.animated-career .journey-intro{margin-top:12px;font-size:12px}.animated-career .career-panel{min-height:300px;padding:20px 28px}.animated-career .career-panel h3{font-size:27px}.animated-career .chapter-label{margin-bottom:10px}.animated-career .chapter-reflection{margin-top:12px;padding-top:10px;font-size:16px}.animated-career .career-controls{margin-top:20px}.animated-career .journey-progress{margin-top:16px}.animated-career .journey-marquee{margin-top:16px}.animated-career .journey-marquee span{font-size:25px}}
+@media(max-width:800px){.experience .career{grid-template-columns:1fr;gap:22px;display:grid}.experience .career-nodes{flex-direction:row;display:flex;gap:7px}.experience .career-nodes button{flex:1;min-width:0;height:90px;padding:10px;gap:8px;align-items:flex-start;flex-direction:column}.experience .career-nodes button>span{font-size:9px;letter-spacing:1px}.experience .career-nodes small{font-size:10px;line-height:1.3}.experience .career-nodes i,.journey-hint{display:none}.experience .career-nodes button.selected{transform:translateY(-4px)}.experience .career-panel{padding:25px;min-height:370px;box-shadow:8px 8px 0 -1px #082117,8px 8px 0 0 #35503c}.experience .section-title h2{font-size:clamp(34px,7vw,50px)}.journey-intro{max-width:75%;font-size:12px}.story-cube{right:0;top:70px;scale:.6;opacity:.6}.experience .career-controls>span{font-size:8px}.experience .career-controls button{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.journey-marquee>div{animation:none}.story-cube,.journey-progress i{transition:none}}
