@@ -30,6 +30,26 @@
     }
   });
 
+  function enquiryDraft() {
+    const fields = new FormData(form);
+    return {
+      subject: 'Portfolio enquiry — ' + (fields.get('topic') || 'General enquiry'),
+      body: 'Name: ' + (fields.get('name') || '') + '\nReply to: ' + (fields.get('email') || '') + '\n\n' + (fields.get('message') || '')
+    };
+  }
+  document.querySelector('#enquiry-gmail').addEventListener('click', () => {
+    if (!form.reportValidity()) return;
+    const draft = enquiryDraft();
+    const url = 'https://mail.google.com/mail/?' + new URLSearchParams({view:'cm',fs:'1',to:email,su:draft.subject,body:draft.body});
+    window.open(url, '_blank', 'noopener,noreferrer');
+    status.dataset.state = 'pending';
+    status.textContent = 'Your enquiry is ready in Gmail. Review it and press Send there. It has not been sent by this page.';
+  });
+  document.querySelector('#enquiry-mail-app').addEventListener('click', event => {
+    if (!form.reportValidity()) { event.preventDefault(); return; }
+    const draft = enquiryDraft();
+    event.currentTarget.href = 'mailto:' + email + '?subject=' + encodeURIComponent(draft.subject) + '&body=' + encodeURIComponent(draft.body);
+  });
   form.addEventListener('submit', async event => {
     event.preventDefault();
     if (sending) return;
@@ -56,6 +76,7 @@
         body: JSON.stringify(Object.fromEntries(data.entries())),
         signal: controller.signal
       });
+      if (!response.ok) throw new Error(response.status >= 500 ? 'service-unavailable' : 'request-failed');
       const result = await response.json();
       const accepted = result.success === true || result.success === 'true';
       const needsActivation = /activat|confirm.*email|check.*email/i.test(String(result.message || ''));
@@ -74,8 +95,8 @@
       console.warn('Portfolio enquiry error:', error.name, error.message);
       status.dataset.state = 'error';
       status.textContent = error.name === 'AbortError'
-        ? 'The request took too long, so delivery could not be confirmed. Your message is still here. You can try again or use Open Gmail.'
-        : 'Your enquiry could not be confirmed. Your message is still here. Please try again, or use Open Gmail / Copy email beside this form.';
+        ? 'The email service timed out. Your message is saved in this form. Choose Send this enquiry through Gmail below to send it without retyping.'
+        : 'The email service is currently unavailable. Your enquiry has not been confirmed. Choose Send this enquiry through Gmail below — your completed message will be included.';
     } finally {
       clearTimeout(timeout);
       sending = false;
