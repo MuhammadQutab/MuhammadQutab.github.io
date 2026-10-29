@@ -60,7 +60,8 @@
     }
     if (!form.reportValidity()) return;
     const data = new FormData(form);
-    if (String(data.get('_honey') || '').trim()) return;
+    if (data.get('botcheck')) return;
+    data.delete('redirect');
     sending = true;
     submit.disabled = true;
     submit.textContent = 'Sending…';
@@ -70,7 +71,7 @@
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 25000);
     try {
-      const response = await fetch('https://formsubmit.co/ajax/' + email, {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
         body: JSON.stringify(Object.fromEntries(data.entries())),
@@ -79,11 +80,7 @@
       if (!response.ok) throw new Error(response.status >= 500 ? 'service-unavailable' : 'request-failed');
       const result = await response.json();
       const accepted = result.success === true || result.success === 'true';
-      const needsActivation = /activat|confirm.*email|check.*email/i.test(String(result.message || ''));
-      if (needsActivation) {
-        status.dataset.state = 'error';
-        status.textContent = 'Email delivery is awaiting confirmation by the site owner. Please use Open Gmail or the email address beside this form for now. Your message is still here.';
-      } else if (response.ok && accepted) {
+      if (response.ok && accepted) {
         status.dataset.state = 'success';
         status.textContent = 'Thank you — your enquiry has been submitted. Muhammad can reply to the email address you provided.';
         form.reset();
