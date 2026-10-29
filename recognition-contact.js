@@ -56,21 +56,22 @@
         body: JSON.stringify(Object.fromEntries(data.entries())),
         signal: controller.signal
       });
-      if (!response.ok) throw new Error('server');
       const result = await response.json();
       const accepted = result.success === true || result.success === 'true';
       const needsActivation = /activat|confirm.*email|check.*email/i.test(String(result.message || ''));
       if (needsActivation) {
         status.dataset.state = 'error';
         status.textContent = 'Email delivery is awaiting confirmation by the site owner. Please use Open Gmail or the email address beside this form for now. Your message is still here.';
-      } else if (accepted) {
+      } else if (response.ok && accepted) {
         status.dataset.state = 'success';
         status.textContent = 'Thank you — your enquiry has been submitted. Muhammad can reply to the email address you provided.';
         form.reset();
       } else {
+        console.warn('Portfolio enquiry rejected', {status: response.status, message: result.message || 'No detail returned'});
         throw new Error('rejected');
       }
     } catch (error) {
+      console.warn('Portfolio enquiry error:', error.name, error.message);
       status.dataset.state = 'error';
       status.textContent = error.name === 'AbortError'
         ? 'The request took too long, so delivery could not be confirmed. Your message is still here. You can try again or use Open Gmail.'
