@@ -19,8 +19,8 @@ const projects = [
   {
     "title": "Churn Intelligence",
     "repo": "Churn-Intelligence-App",
-    "image": "assets/churn-ai-cover.png",
-    "coverArt": true,
+    "image": "assets/churn-screenshot.png",
+    "mediaLabel": "Original application screenshot",
     "category": "Research mentorship",
     "filter": [
       "ai",
@@ -36,8 +36,8 @@ const projects = [
   {
     "title": "Threat Detection Dashboard",
     "repo": "ids-threat-detection-dashboard",
-    "image": "assets/threat-ai-cover.png",
-    "coverArt": true,
+    "image": "assets/threat-screenshot.png",
+    "mediaLabel": "Original application screenshot",
     "category": "Research mentorship",
     "filter": [
       "ai",
@@ -53,8 +53,8 @@ const projects = [
   {
     "title": "Student Risk Prediction",
     "repo": "student-risk-streamlit-app",
-    "image": "assets/student-ai-cover.png",
-    "coverArt": true,
+    "image": "assets/student-screenshot.png",
+    "mediaLabel": "Original application screenshot",
     "category": "Research mentorship",
     "filter": [
       "ai",
