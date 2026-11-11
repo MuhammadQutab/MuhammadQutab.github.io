@@ -14,7 +14,8 @@ const projects = [
     "image": "assets/citymate-portfolio.jpeg",
     "mediaLabel": "CityMate AI / promotional artwork",
     "demo": "https://citymate-ai.vercel.app/",
-    "demoLabel": "Explore live app"
+    "demoLabel": "Explore live app",
+    "linkedin": "https://www.linkedin.com/posts/muhammadqutab6_citymateai-nylphackathon2026-artificialintelligence-ugcPost-7518287984388009985-_Znr/"
   },
   {
     "title": "Churn Intelligence",
@@ -31,24 +32,8 @@ const projects = [
     "glyph": "↺",
     "tone": "#c2cebc",
     "demo": "https://churn-intelligence-app-ujvv4vdpe9qbhszfzwffd4.streamlit.app/",
-    "demoLabel": "Open prototype"
-  },
-  {
-    "title": "Threat Detection Dashboard",
-    "repo": "ids-threat-detection-dashboard",
-    "image": "assets/threat-screenshot.png",
-    "mediaLabel": "Original application screenshot",
-    "category": "Research mentorship",
-    "filter": [
-      "ai",
-      "data"
-    ],
-    "description": "Student-led MSc prototype for classifying prepared network traffic with contextual geo-enrichment. My role: research guidance, technical mentorship, ML pipeline support, and documentation assistance.",
-    "stack": "XGBoost / Streamlit / Intrusion detection",
-    "glyph": "⌘",
-    "tone": "#bdcbd7",
-    "demo": "https://ids-threat-detection-dashboard-gv4uxcbmbj8zbkxqjfak4m.streamlit.app",
-    "demoLabel": "Open prototype"
+    "demoLabel": "Open prototype",
+    "linkedin": "https://www.linkedin.com/posts/muhammadqutab6_dataanalytics-machinelearning-customerchurn-ugcPost-7515129143332810752-PfnG/"
   },
   {
     "title": "Student Risk Prediction",
@@ -65,7 +50,26 @@ const projects = [
     "glyph": "∑",
     "tone": "#d6c8dd",
     "demo": "https://student-risk-app-app-qhoos73nutyj3gut6aftjm.streamlit.app/",
-    "demoLabel": "Open prototype"
+    "demoLabel": "Open prototype",
+    "linkedin": "https://www.linkedin.com/posts/muhammadqutab6_machinelearning-explainableai-xai-ugcPost-7514745049298149376-t-5V/"
+  },
+  {
+    "title": "Threat Detection Dashboard",
+    "repo": "ids-threat-detection-dashboard",
+    "image": "assets/threat-screenshot.png",
+    "mediaLabel": "Original application screenshot",
+    "category": "Research mentorship",
+    "filter": [
+      "ai",
+      "data"
+    ],
+    "description": "Student-led MSc prototype for classifying prepared network traffic with contextual geo-enrichment. My role: research guidance, technical mentorship, ML pipeline support, and documentation assistance.",
+    "stack": "XGBoost / Streamlit / Intrusion detection",
+    "glyph": "⌘",
+    "tone": "#bdcbd7",
+    "demo": "https://ids-threat-detection-dashboard-gv4uxcbmbj8zbkxqjfak4m.streamlit.app",
+    "demoLabel": "Open prototype",
+    "linkedin": "https://www.linkedin.com/posts/muhammadqutab6_cybersecurity-machinelearning-academicmentorship-ugcPost-7514357213625499648-X4Pn/"
   },
   {
     "title": "RoboTechArm",
